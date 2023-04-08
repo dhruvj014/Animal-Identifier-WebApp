@@ -1,0 +1,159 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<div class='container' id="myrow">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="uploadimg" data-toggle="tab" href="#upload-image" role="tab"
+                aria-controls="upload-image" aria-selected="true">Upload Image</a>
+        </li>
+    </ul>
+
+    <!--Tabs-->
+    <div class="tab-content">
+        <div class="tab-pane show active" id="upload-image" role="tabpanel" aria-labelledby="uploadimg">
+            <div class="row">
+                <div class="col">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <!-- file input -->
+                        <p>
+                            <input type="file" name="image_name" class="btn"
+                                style="background-color: #66FCF1; color: #0B0C10" required>
+                        </p>
+                        <!-- submit button -->
+                        <p>
+                            <input type="submit" value="Upload" class="btn"
+                                style="background-color: #66FCF1; color: #0B0C10"> <br>
+                        </p>
+                        <p align="center" id="ftr"><strong>Important!!</strong> <br>
+                            Only upload files of the type ".jpg", ".png" and ".jpeg" <br>
+                            For other files you will be <strong>redirected</strong> to error 404 page
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    {% if fileupload %}
+    <div class="container" id="oprow">
+        <div class="row">
+            <div class="col">
+                <table>
+                    <tr id="tabdeets">
+                        <th>Animal</th>
+                        <th>Confidence Score</th>
+                    </tr>
+                    {% for name,score in data.items() %}
+                    <tr>
+                        <td id="vals">{{ name }}</td>
+                        <td id="vals">{{ score }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="col col-4">
+                <img src="/static/upload/{{ imgname }}" alt="Uploaded Image" width=300 height={{height}}>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% if extension  %}
+        <div class="container" id="oprow">
+            <div class="row">
+                <p>
+                    Invalid Image Extension<br>
+                    Make sure you upload the <strong>correct</strong> Image extension.
+                </p>
+            </div>
+        </div>
+    
+    
+    
+    {% endif %}
+
+
+
+
+</div>
+<style>
+    #myrow ul li.selected {
+        background: azure;
+        color: #0B0C10;
+    }
+
+    #myrow a:hover{
+        text-decoration: underline;
+        font-weight: 700;
+        float: inline-end;
+    }
+
+    #myrow li {
+        /* display: block; */
+        float: left;
+        background-color: transparent;
+    }
+
+    #myrow {
+        background-color: transparent;
+        border: 3px solid #66FCF1;
+        border-color: #66FCF1;
+    }
+
+    #myrow p {
+        margin: 1%;
+        font-weight: bold;
+        color: white
+    }
+
+    #ftr {
+        color: white;
+    }
+
+    #ftr1 {
+        color: white;
+        padding-bottom: 5%;
+    }
+
+    #wlcm {
+        text-align: center;
+        color: white;
+    }
+
+    #tabdeets {
+        color: white;
+    }
+
+    #vals {
+        color: white;
+    }
+
+    #oprow {
+        background-color: transparent;
+        padding: 5%;
+        align-content: center;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    table,th,td {
+        border: 1px solid #66FCF1;
+    }
+
+</style>
+<script>
+    $('#upload-image a').on('click', function (e) {
+        $('#myrow ul li').removeClass('selected');
+        $(e.currentTarget).parent('li').addClass('selected');
+        e.preventDefault()
+        $(this).tab('show')
+    })
+    $('#upload-url a').on('click', function (e) {
+        $('#myrow ul li').removeClass('selected');
+        $(e.currentTarget).parent('li').addClass('selected');
+        e.preventDefault()
+        $(this).tab('show')
+    })
+</script>
+{% endblock %}

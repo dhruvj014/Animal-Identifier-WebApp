@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+{% block body %}
+
+<div class="container" id="oprow">
+    <div class="row">
+        <pre id="pre">
+            This project was made using a number of different coding languages:
+
+            1) We first prepared the image training model based off an image dataset using Jupyter Notebook
+            2) We then exported the models as pickle files.
+            3) Next, we began implementing the model in flask.
+            4) Here, we used CSS,HTML and Django HTML to beautify the webapp.
+            5) Finally we deployed the app!
+
+            Thank you for your interest!
+        </pre>
+    </div>
+</div>
+<style>
+    #wlcm {
+        text-align: center;
+        color: white;
+    }
+
+    #pre {
+        /* text-align: center; */
+        color: white;
+    }
+
+    #ftr1 {
+        color: white;
+        padding-bottom: 5%;
+    }
+    #oprow {
+        background-color: transparent;
+        text-overflow: ellipsis;
+        padding: 5%;
+        align-content: center;
+    }
+</style>
+{% endblock  %}

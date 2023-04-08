@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+
+{% block body %}
+
+<div class="container" id="oprow">
+    <h3 id="errh">{{err_response}}</h3>
+    <h4 id="errh">Please Return To Previous Page and Retry.</h4>
+    
+</div>
+<style>
+    #wlcm {
+        text-align: center;
+        color: white;
+    }
+
+    #errh {
+        text-align: center;
+        color: white;
+    }
+
+    #ftr1 {
+        color: white;
+        padding-bottom: 5%;
+    }
+    #oprow {
+        background-color: transparent;
+        padding: 5%;
+        align-content: center;
+    }
+</style>
+{% endblock  %}

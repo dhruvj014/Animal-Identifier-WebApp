@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Image Processing App Running</title>
+        <link rel="stylesheet" href="/static/css/bootstrap.css">
+        <script src="/static/js/jquery-3.6.4.js"></script>
+        <script src="/static/js/bootstrap.js"></script>
+        <script src="/static/js/bootstrap.bundle.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0B0C10;">
+            <a class="navbar-brand" id="" href="/">Animal Identifier Model</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item" id="idtfr">
+                  <a class="nav-link" href="/identifier">Identifier<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" id="abtprj">
+                  <a class="nav-link" href="/about-project">About The Project</a>
+                </li>
+                <li class="nav-item" id="abtme">
+                  <a class="nav-link" href="/about-me">About Me</a>
+                </li>
+              </ul>
+              <span class="navbar-text">
+                Thanks for trying out my project!
+              </span>
+            </div>
+          </nav>
+          <div class="container" id="wlcm">
+            <h4>Welcome To This Animal Identifier Model</h4>
+          </div>
+
+          {% block body  %}
+          
+          
+          
+          {% endblock  %}
+
+
+        <!--Footer-->
+        <div class="container" id="ftr1">
+            <hr>
+            <footer>
+                Developed and Coded by <a href="https://github.com/dhruvj014">Dhruv S Jain</a>
+            </footer>
+        </div>
+    </body>
+</html>
+<style>
+  body{
+    background-image: url('https://raw.githubusercontent.com/dhruvj014/Animal-Identifier-WebApp/main/pics/backgroundimage.jpeg');
+  }
+  </style> 
+<script>
+    $('#idtfr a').on('click', function (e) {
+        $('#navbarText ul li').removeClass('active');
+        $(e.currentTarget).parent('li').addClass('active');
+        // $(this).tab('show')
+        e.stopPropagation()
+        
+    })
+    $('#abtprj a').on('click', function (e) {
+        $('#navbarText ul li').removeClass('active');
+        $(e.currentTarget).parent('li').addClass('active');
+        // $(this).tab('show')
+        e.stopPropagation()
+        
+    })
+    $('#abtme a').on('click', function (e) {
+        $('#navbarText ul li').removeClass('active');
+        $(e.currentTarget).parent('li').addClass('active');
+        // $(this).tab('show')
+        e.stopPropagation()
+        
+    })
+    
+</script>
